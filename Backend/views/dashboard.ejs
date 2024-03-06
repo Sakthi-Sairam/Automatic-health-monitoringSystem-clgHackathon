@@ -1,0 +1,110 @@
+<!-- views/dashboard.ejs -->
+
+<%- include('partials/header') %>
+<%- include('partials/sidebar', { option: "dashboard" }) %>
+<div class="main-content">
+  <div class="header-wrap">
+      <div class="header-title">
+          <h2>Dashboard</h2>
+      </div>
+      <div class="user-info">
+          <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Search" />
+          </div>
+      </div>
+  </div>
+<div class="module">
+<!-- <h2>Health Record</h2> -->
+<br>
+
+<% if (record) { %>
+  <!-- Display patient details -->
+  <div class="patient-details">
+    <h2><strong>Welcome</strong> <span  style="color: #3468C0;"><%= record.patient.firstName %> <%= record.patient.lastName %></span> to the Health Record platform</h2>
+    <!-- Add more fields based on your patient model -->
+  </div>
+  <!-- Add links to Edit and View Profile -->
+  <!-- <a href="/edit-profile" class="btn">Edit Profile</a>
+  <a href="/view-profile" class="btn">View Profile</a> -->
+<% } else { %>
+  <p>No health records found.</p>
+<% } %>
+</div>
+<div class="module">
+  <h2>Record Information</h2>
+  <br>
+  <% if (record) { %>
+    <!-- Display patient details -->
+    <div class="patient-details">
+      <p><strong>Date of Birth:</strong> <%= record.dateOfBirth %></p>
+      <p><strong>Gender:</strong> <%= record.gender %></p>
+      <p><strong>Phone:</strong> <%= record.contact.phone %></p>
+      <p><strong>Email:</strong> <%= record.contact.email %></p>
+      <p><strong>Street:</strong> <%= record.address.street %></p>
+      <p><strong>City:</strong> <%= record.address.city %></p>
+      <p><strong>State:</strong> <%= record.address.state %></p>
+      <p><strong>ZIP Code:</strong> <%= record.address.zip %></p>
+      <br>
+      <h3>Medical History</h3>
+      <br>
+      <p><strong>Allergies:</strong> <%= record.medicalHistory.allergies.join(', ') %></p>
+      <p><strong>Medications:</strong> <%= record.medicalHistory.medications.join(', ') %></p>
+      <p><strong>Surgeries:</strong> <%= record.medicalHistory.surgeries.join(', ') %></p>
+    </div>
+    <br>
+    <!-- Add links to Edit and View Profile -->
+    <a href="/edit-profile" class="btn">Edit Profile</a>
+    <a href="/view-profile" class="btn">View Profile</a>
+  <% } else { %>
+    <p>No health records found.</p>
+  <% } %>
+</div>
+<div  class="module module2">
+  <h2>Heart rate</h2>
+  <br>
+  <canvas id="heartRatePieChart"></canvas>
+</div>
+
+<div class="module module2">
+  <canvas id="lineChart"></canvas>
+</div>
+</div>
+
+<script>
+  // Prepare data (corrected line)
+  var categories = JSON.parse('<%- JSON.stringify(categories) %>');
+  console.log(categories);
+
+  // Pie Chart
+  var pieCtx = document.getElementById('heartRatePieChart').getContext('2d');
+  var pieChart = new Chart(pieCtx, {
+    type: 'pie',
+    data: {
+      labels: Object.keys(categories),
+      datasets: [{
+        data: Object.values(categories),
+        backgroundColor: ['#ff5733', '#33ff57', '#3333ff'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true
+    }
+  });
+  // Line Chart
+  var lineCtx = document.getElementById('lineChart').getContext('2d');
+    var lineChart = new Chart(lineCtx, {
+      type: 'line',
+      data: {
+        labels: Object.keys(categories),
+        datasets: [{
+          label: 'Heart Rate Categories',
+          data: Object.values(categories),
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+          fill: false
+        }]
+      }
+    });
+</script>

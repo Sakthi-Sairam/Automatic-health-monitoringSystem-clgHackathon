@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Rate Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Heart Rate Analytics</h1>
+
+    
+    <div style="width: 600px; margin: 20px;">
+        <canvas id="heartRateChart" ></canvas>
+    </div>
+
+    <canvas id="heartRatePieChart" style="width: 300px; margin: auto;"></canvas>
+
+
+    <div style="width: 600px; margin: auto;">
+        <canvas id="lineChart"></canvas>
+    </div>
+
+    <div style="width: 600px; margin: auto;">
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <div style="width: 600px; margin: auto;">
+        <canvas id="pieChart"></canvas>
+    </div>
+
+    <script>
+        // Convert timestamps to readable format
+        const timestamps = {{ timestamps | tojson | safe }};
+        const formattedTimestamps = timestamps.map(ts => new Date(ts).toLocaleTimeString());
+
+        // Heart rates data
+        const heartRates = {{ heart_rates | tojson | safe }};
+
+        // Line Chart
+        const lineChartCtx = document.getElementById('lineChart').getContext('2d');
+        const lineChart = new Chart(lineChartCtx, {
+            type: 'line',
+            data: {
+                labels: formattedTimestamps,
+                datasets: [{
+                    label: 'Heart Rate',
+                    data: heartRates,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            }
+        });
+
+        // Bar Chart
+        const barChartCtx = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(barChartCtx, {
+            type: 'bar',
+            data: {
+                labels: formattedTimestamps,
+                datasets: [{
+                    label: 'Heart Rate',
+                    data: heartRates,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            }
+        });
+
+        // Pie Chart
+        const pieChartCtx = document.getElementById('pieChart').getContext('2d');
+        const pieChart = new Chart(pieChartCtx, {
+            type: 'pie',
+            data: {
+                labels: formattedTimestamps,
+                datasets: [{
+                    data: heartRates,
+                    backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(255, 205, 86, 0.2)'],
+                    borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)', 'rgba(255, 205, 86, 1)'],
+                    borderWidth: 1
+                }]
+            }
+        });
+    </script>
+    
+<script>
+    // Prepare data
+    var categories = JSON.parse('{{ categories|tojson|safe }}');
+    
+    // Create bar chart
+    var ctx = document.getElementById('heartRateChart').getContext('2d');
+    var heartRateChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: Object.keys(categories),
+            datasets: [{
+                label: 'Heart Rate Categories',
+                data: Object.values(categories).reverse(),  // Reverse the order
+                backgroundColor: ['#ff5733', '#33ff57', '#3333ff'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y',  // Set index axis to 'y'
+            scales: {
+                x: {
+                    beginAtZero: true
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+<!-- ... (previous HTML content) ... -->
+
+<script>
+    // Prepare data
+    var categories = JSON.parse('{{ categories|tojson|safe }}');
+    
+    // Create pie chart
+    var ctx = document.getElementById('heartRatePieChart').getContext('2d');
+    var heartRatePieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: Object.keys(categories),
+            datasets: [{
+                data: Object.values(categories),
+                backgroundColor: ['#ff5733', '#33ff57', '#3333ff'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
+
+<!-- ... (remaining HTML content) ... -->
+
+    
+</body>
+</html>
