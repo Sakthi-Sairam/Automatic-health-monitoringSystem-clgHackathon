@@ -18,7 +18,7 @@
 
     <main>
         <div class="form-container">
-            <form action="/auth/login" method="POST">
+            <form action="/auth/<%= option === 'user' ? 'user' : 'doctor' %>/login" method="POST">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
 

@@ -46,8 +46,8 @@
           <div class="container">
             <a href="#" class="logo">Health Care <b>PLUS</b></a>
             <ul class="links">
-                <li><a href="/auth/login">login</a></li>
-                <li><a href="/auth/register">register</a></li>
+                <li><a href="/auth/user/login">login</a></li>
+                <li><a href="/auth/user/register">register</a></li>
                 <li><a href="/auth/logout">logout</a></li>
                 <!-- <li><a href="/add">add</a></li> -->
                 <li><a href="/dashboard">dashboard</a></li>
@@ -59,7 +59,8 @@
             <div class="info">
               <h1>Welcome to Health Record Management System</h1>
               <p>In present days, the patients belonging to rural and sub-urban communities do not maintain the diagnosis reports for which they frequently go for regular checkups wasting their valuable money. Thus, an automatic report maintain system is to be developed to avoid repetitive diagnosing of the patients.</p>
-              <button>Button name</button>
+              <a href="/auth/doctor/login"><button>Doctor Login</button></a>
+              <a href="/auth/doctor/register"><button>Doctor Register</button></a>
             </div>
             <div class="image">
               <img class="main-image" src="/images/landing.png">
@@ -73,6 +74,20 @@
     <footer>
         <p>&copy; 2024 Health Record Management System</p>
     </footer> -->
+
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '65fd9cab902cd6e6252ffbd1' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production'
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
 </body>
 
 </html>
