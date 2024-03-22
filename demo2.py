@@ -28,7 +28,7 @@ plt.ion()
 num_measurements = 100
 heart_rates = []
 
-num_frames_for_analysis = 100
+num_frames_for_analysis = 800
 
 # Flask server URL
 flask_server_url = 'http://127.0.0.1:5000/api/heart_rate'
@@ -138,7 +138,7 @@ while cap.isOpened():
 
             if len(heart_rates) >= num_measurements:
                 # Calculate and print average heart rate
-                average_heart_rate = np.median(heart_rates) 
+                average_heart_rate = np.mean(heart_rates) 
                 print(f"Average heart rate over {num_measurements} measurements: {average_heart_rate:.2f} BPM")
                 # Turn off the system
                 cap.release()

@@ -71,6 +71,23 @@
 </div>
 </div>
 
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '65fd9cab902cd6e6252ffbd1' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+
+<!-- <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+<script src="https://mediafiles.botpress.cloud/bb4389ed-3c61-4619-9747-e5e727889fae/webchat/config.js" defer></script> -->
+
 <script>
   // Prepare data (corrected line)
   var categories = JSON.parse('<%- JSON.stringify(categories) %>');
