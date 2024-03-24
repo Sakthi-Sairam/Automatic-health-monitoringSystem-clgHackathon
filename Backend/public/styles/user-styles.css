@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;  /* to include padding and border in the total width and height */
+    font-family: "Ubuntu", sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+.sidebar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 110px;
+    height: 100vh;
+    padding: 0 1.5rem;
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    background-color: #3468C0;
+}
+
+.sidebar:hover {
+    width: 250px;
+    transition: 0.5s;
+}
+
+.logo{
+    height: 80px;
+    padding: 16px;
+}
+
+.menu{
+    height: 88%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 1rem;
+    margin: 8px 0;
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu li:hover, .active {
+    background-color: #86A7FC;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu a span {
+    overflow: hidden;
+}
+
+.menu a i {
+    font-size: 1.2rem;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Main content */
+.main-content {
+    position: relative;
+    background-color: #EFECEC;
+    width: 100%;
+    padding: 1rem;
+}
+
+.header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px 2rem;
+    margin-bottom: 1rem;
+}
+
+.header-title h2 {
+    color: #3468C0;
+}
+
+.search-box {
+    background-color: #EFECEC;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 4px 12px;
+}
+
+.search-box input {
+    background: transparent;
+    padding: 10px;
+}
+
+.search-box i {
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.search-box i:hover {
+    transform: scale(1.3);
+}
+
+
+/* table section*/
+.main-title {
+    color: #3468C0;
+}
+
+.tabular-wrap {
+    background-color: #fff;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.table-container {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #3468C0;
+    color: #fff;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+}
+
+tbody {
+    background-color: #fff;
+}
+
+td {
+    padding: 15px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.action-icon {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+tfoot {
+    background-color: #3468C0;
+    font-weight: bold;
+    color: #fff;
+}
+
+tfoot td {
+    padding: 15px;
+    color: #fff;
+}
+
+/* ******* Profile page ******** */
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.profile-items {
+    padding: 12px;
+    background-color: #fff;
+    color: grey;
+    border: solid 3px;
+    border-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+.profile-table {
+    width: 70%;
+}
+
+.profile-table tr {
+    padding: 17px;
+    text-align: left;
+}
+
+.profile-pic {
+    display: flex;
+    gap: 6rem;
+}
+
+.profile-pic .pic-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+p {
+    color: grey;
+    font-size: 0.8rem;
+}
+
+/* ********** medications section ********** */
+
+.med-wrap {
+    background-color: #fff;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.med-container {
+    width: 100%;
+}
+
+.med-table {
+    width: 30%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}

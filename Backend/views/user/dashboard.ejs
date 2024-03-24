@@ -1,7 +1,7 @@
 <!-- views/dashboard.ejs -->
 
-<%- include('partials/header') %>
-<%- include('partials/sidebar', { option: "dashboard" }) %>
+<%- include('../partials/header') %>
+<%- include('../partials/user-sidebar', { option: "dashboard" }) %>
 <div class="main-content">
   <div class="header-wrap">
       <div class="header-title">
@@ -54,8 +54,8 @@
     </div>
     <br>
     <!-- Add links to Edit and View Profile -->
-    <a href="/edit-profile" class="btn">Edit Profile</a>
-    <a href="/view-profile" class="btn">View Profile</a>
+    <a href="/user/profile" class="btn">Edit Profile</a>
+    <a href="/user/profile" class="btn">View Profile</a>
   <% } else { %>
     <p>No health records found.</p>
   <% } %>

@@ -1,0 +1,54 @@
+<div class="sidebar">
+    <div class="logo"></div>
+    <ul class="menu">
+        <li class="<%= option === 'dashboard' ? 'active' : '' %>">
+            <a href="/user/dashboard" >
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>Check Vitals</span>
+            </a>
+        </li>
+        <li class="<%= option === 'medication' ? 'active' : '' %>">
+            <a href="/user/medication">
+                <i class="fa-solid fa-capsules"></i>
+                <span>Medications & Dosage</span>
+            </a>
+        </li>
+        <li class="<%= option === 'history' ? 'active' : '' %>">
+            <a href="/user/history">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>History</span>
+            </a>
+        </li>
+        
+        <li class="<%= option === 'report' ? 'active' : '' %>">
+            <a href="/user/report">
+                <i class="fa-solid fa-folder-open"></i>
+                <span>Reports</span>
+            </a>
+        </li>
+        <li class="<%= option === 'profile' ? 'active' : '' %>">
+            <a href="/user/profile">
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </li>
+        <li class="<%= option === 'userChat' ? 'active' : '' %>">
+            <a href="/patient/livechat">
+                <i class="fa-solid fa-comments"></i>
+                <span>Live chat</span>
+            </a>
+        </li>
+        <li >
+            <a href="/analytics">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>HeartRate Monitor</span>
+            </a>
+        </li>
+        <li class="logout">
+            <a href="/auth/logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </a>
+        </li>
+    </ul>
+</div>

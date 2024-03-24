@@ -1,0 +1,56 @@
+<%- include('../partials/header') %>
+<%- include('../partials/doc-sidebar', { option: "dashboard" }) %>
+
+<div class="main-content">
+    <div class="header-wrap">
+        <div class="header-title">
+            <h2>Health Records</h2>
+        </div>
+        <div class="user-info">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search" />
+            </div>
+        </div>
+    </div>
+
+    <div class="tabular-wrap">
+        <h3 class="main-title">Patients</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Patient Name</th>
+                        <th>Location</th>
+                        <th>Last Updated</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Sakthi Sairam</td>
+                        <td>Chennai, Tamil Nadu</td>
+                        <td>2024-01-26</td>
+                        <td class="action-icon">
+                            <a href="patient.html"><i class="fa-solid fa-pen-to-square edit-icon"></i></a>
+                            <i class="fa-solid fa-trash delete-icon"></i>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">Total: 1</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <button type="submit" class="btn">Add Record</button>
+    </div>
+    
+    
+</div>
+    
+</body>
+</html>

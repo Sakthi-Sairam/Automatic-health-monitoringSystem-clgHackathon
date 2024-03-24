@@ -32,7 +32,7 @@ router.post('/user/register', async (req, res) => {
     await newUser.save();
 
     req.session.user = newUser; // Store user information in the session
-    res.redirect('/');
+    res.redirect('/user/dashboard');
   } catch (error) {
     console.error(error);
     res.render('register', { errorMessage: 'Error registering user.' });
@@ -91,7 +91,7 @@ router.post('/doctor/login', async (req, res) => {
     }
 
     req.session.user = user; // Store user information in the session
-    res.redirect('/');
+    res.redirect('/doctor/dashboard');
   } catch (error) {
     console.error(error);
     res.render('login', { errorMessage: 'Error logging in.' });
@@ -114,7 +114,7 @@ router.post('/user/login', async (req, res) => {
     }
 
     req.session.user = user; // Store user information in the session
-    res.redirect('/');
+    res.redirect('/user/dashboard');
   } catch (error) {
     console.error(error);
     res.render('login', { errorMessage: 'Error logging in.' });

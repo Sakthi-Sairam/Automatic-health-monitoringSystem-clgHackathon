@@ -1,62 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History</title>
-    
-    <link rel="stylesheet" href="/styles/userStyles.css">
+<%- include('../partials/header') %>
 
-    <script src="https://kit.fontawesome.com/58ca8d4901.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    
-</head>
-<body>
-
-    <div class="sidebar">
-        <div class="logo"></div>
-        <ul class="menu">
-            <li >
-                <a href="/user/dashboard" >
-                    <i class="fa-solid fa-heart-pulse"></i>
-                    <span>Check Vitals</span>
-                </a>
-            </li>
-            <li>
-                <a href="/user/medication">
-                    <i class="fa-solid fa-capsules"></i>
-                    <span>Medications & Dosage</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="/user/history">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                    <span>History</span>
-                </a>
-            </li>
-            
-            <li>
-                <a href="/user/report">
-                    <i class="fa-solid fa-folder-open"></i>
-                    <span>Reports</span>
-                </a>
-            </li>
-            <li>
-                <a href="/user/profile">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Profile</span>
-                </a>
-            </li>
-            <li class="logout">
-                <a href="/auth/logout">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span>Log Out</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+<%- include('../partials/user-sidebar', { option: "history" }) %>
 
 
     <div class="main-content">

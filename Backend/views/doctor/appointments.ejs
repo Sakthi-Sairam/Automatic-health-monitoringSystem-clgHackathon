@@ -1,0 +1,67 @@
+<%- include('../partials/header') %>
+<%- include('../partials/doc-sidebar', { option: "appointments" }) %>
+
+    <div class="main-content">
+        <div class="header-wrap">
+            <div class="header-title">
+                <h2>Your Appointments</h2>
+            </div>
+            <div class="user-info">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search" />
+                </div>
+            </div>
+        </div>
+
+        <div class="tabular-wrap">
+            <div class="header-wrap">
+                <h3 class="main-title">Patients</h3>
+                <div class="search-box">
+                    <p>SortBy</p>
+                    <input type="text" placeholder="Time slot" />
+                    <i class="fa-solid fa-arrow-up-wide-short"></i>
+                </div>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Patient Name</th>
+                            <th>Time Slot</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Sakthi Sairam</td>
+                            <td>12:00 p.m. - 1:00 p.m.</td>
+                            <td class="action-icon">
+                                <i class="fa-solid fa-pen-to-square edit-icon"></i>
+                                <i class="fa-solid fa-xmark delete-icon"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Mohan Krishna</td>
+                            <td>2:00 p.m. - 4:00 p.m.</td>
+                            <td class="action-icon">
+                                <i class="fa-solid fa-pen-to-square edit-icon"></i>
+                                <i class="fa-solid fa-xmark delete-icon"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">Total: 1</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

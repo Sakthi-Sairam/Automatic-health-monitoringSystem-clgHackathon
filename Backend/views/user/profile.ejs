@@ -1,114 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="/styles/userStyles.css">
+<!-- views/editProfile.ejs -->
 
-    <script src="https://kit.fontawesome.com/58ca8d4901.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<%- include('../partials/header') %>
 
-</head>
-<body>
-    <div class="sidebar">
-        <div class="logo"></div>
-        <ul class="menu">
-            <li >
-                <a href="/user/dashboard" >
-                    <i class="fa-solid fa-heart-pulse"></i>
-                    <span>Check Vitals</span>
-                </a>
-            </li>
-            <li>
-                <a href="/user/medication">
-                    <i class="fa-solid fa-capsules"></i>
-                    <span>Medications & Dosage</span>
-                </a>
-            </li>
-            <li>
-                <a href="/user/history">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                    <span>History</span>
-                </a>
-            </li>
-            
-            <li>
-                <a href="/user/report">
-                    <i class="fa-solid fa-folder-open"></i>
-                    <span>Reports</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="/user/profile">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Profile</span>
-                </a>
-            </li>
-            <li class="logout">
-                <a href="/auth/logout">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span>Log Out</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+<%- include('../partials/user-sidebar', { option: "profile" }) %>
 
-    <div class="main-content">
-        <div class="header-wrap">
-            <div class="header-title">
-                <h2>Profile</h2>
-                <p>Update your photo and personal information here.</p>
-            </div>
-        </div>
 
-        <div class="tabular-wrap">
-            <div class="table-container">
-                <table class="profile-table">
-                    <tr>
-                        <td>Your Photo</td>
-                        <td class="profile-pic">
-                            <img src="/images/profile-img.png" alt="">
-                            <div class="pic-actions">
-                                <a href="#">Edit</a>
-                                <a href="#">Delete</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Your Name</td>
-                        <td>
-                            <input class="profile-items" type="text" value="Sakthi Sairam">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td>
-                            <input class="profile-items" type="email" value="sakthisairam@gmail.com">
-                        </td>
-                    </tr><tr>
-                        <td>Mobile number</td>
-                        <td>
-                            <input class="profile-items" type="number" value="8672434789">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Guardian</td>
-                        <td>
-                            <input class="profile-items" type="text" value="Mr. Abcdefgh">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Relationship</td>
-                        <td>
-                            <input class="profile-items" type="text" value="Father">
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+<main class="main-content">
+  <div class="header-wrap">
+      <div class="header-title">
+          <h2>Edit Profile</h2>
+          <p>Edit your personal profile</p>
+      </div>
+  </div>
+
+  <div class="tabular-wrap module">
+    <form action="/edit-profile" method="POST" class="table-container">
+      <table class="profile-table">
+          <tr>
+              <td>
+                  <label for="firstName">First Name:</label>
+              </td>
+              <td>
+                  <input type="text" id="firstName" name="firstName" class="profile-items" required value="<%= record.patient.firstName %>">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <label for="lastName">Last Name:</label>
+              </td>
+              <td>
+                  <input type="text" id="lastName" name="lastName" class="profile-items" required value="<%= record.patient.lastName %>">
+              </td>
+          </tr>
+          <!-- <tr>
+              <td>
+                  <label for="dateOfBirth">Date of Birth:</label>
+              </td>
+              <td>
+                  <input type="date" id="dateOfBirth" name="dateOfBirth" class="profile-items" value="<%= record.dateOfBirth %>">
+              </td>
+          </tr> -->
+          <tr>
+              <td>
+                  <label for="gender">Gender:</label>
+              </td>
+              <td>
+                  <select id="gender" name="gender" class="profile-items">
+                      <option value="Male" <%= record.gender === 'Male' ? 'selected' : '' %>>Male</option>
+                      <option value="Female" <%= record.gender === 'Female' ? 'selected' : '' %>>Female</option>
+                      <option value="Other" <%= record.gender === 'Other' ? 'selected' : '' %>>Other</option>
+                  </select>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <label for="phone">Phone:</label>
+              </td>
+              <td>
+                  <input type="tel" id="phone" name="phone" class="profile-items" value="<%= record.contact.phone %>">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <label for="email">Email:</label>
+              </td>
+              <td>
+                  <input type="email" id="email" name="email" class="profile-items" value="<%= record.contact.email %>">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <label for="street">Street:</label>
+              </td>
+              <td>
+                  <input type="text" id="street" name="street" class="profile-items" value="<%= record.address.street %>">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <label for="city">City:</label>
+              </td>
+              <td>
+                  <input type="text" id="city" name="city" class="profile-items" value="<%= record.address.city %>">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <label for="state">State:</label>
+              </td>
+              <td>
+                  <input type="text" id="state" name="state" class="profile-items" value="<%= record.address.state %>">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <label for="zip">ZIP Code:</label>
+              </td>
+              <td>
+                  <input type="text" id="zip" name="zip" class="profile-items" value="<%= record.address.zip %>">
+              </td>
+          </tr>
+      </table>
+  
+      <button type="submit" class="btn">Save Changes</button>
+  </form>
+  
+  
+  </div>
+</main>
+
+
+

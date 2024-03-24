@@ -3,23 +3,29 @@
   <div class="logo"></div>
   <ul class="menu">
     <li class="<%= option === 'dashboard' ? 'active' : '' %>">
-      <a href="/dashboard" >
+      <a href="/doctor/dashboard" >
               <i class="fa-solid fa-file-medical"></i>
               <span>Dashboard</span>
           </a>
       </li>
-      <li>
-          <a href="/">
+      <li class="<%= option === 'appointments' ? 'active' : '' %>">
+          <a href="/doctor/appointments">
               <i class="fa-solid fa-calendar-check"></i>
               <span>Appointments</span>
           </a>
       </li>
-      <li class="<%= option === 'profile' ? 'active' : '' %>">
-          <a href="/edit-profile">
-              <i class="fa-solid fa-user"></i>
-              <span>Profile</span>
-          </a>
-      </li>
+      <li class="<%= option === 'addrecord' ? 'active' : '' %>">
+        <a href="/doctor/add">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add Record</span>
+        </a>
+    </li>
+      <li class="<%= option === 'doctorChat' ? 'active' : '' %>">
+        <a href="/doc/livechat">
+            <i class="fa-solid fa-comments"></i>
+            <span>Live chat</span>
+        </a>
+    </li>
       <li class="logout">
           <a href="/auth/logout">
               <i class="fa-solid fa-right-from-bracket"></i>
